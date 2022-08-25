@@ -15,7 +15,7 @@ export default class EnemyMovement {
       currentDirection = gameMovement.right;
       xVelocity = 0;
       yVelocity = 0;
-      defaultXVelocity = 0;
+      defaultXVelocity = 1 ;
       defaultYVelocity = 1;
       moveDownTimerDefault = 30;
       moveDownTimer = this.moveDownTimerDefault;
@@ -26,6 +26,9 @@ export default class EnemyMovement {
         this.canvas = canvas;
         this.enemyBulletControl = enemyBulletControl;
         this.playerBulletController = playerBulletController;
+
+        this.enemySound = new Audio("space-invaders-assets/sounds/enemy-death.wav")
+        this.enemySound.volume = 0.5;
 
 
         this.createEnemies();
@@ -45,7 +48,8 @@ export default class EnemyMovement {
         this.enemyRows.forEach((enemyRow) => {
             enemyRow.forEach((enemy, enemyIndex) => {
                 if(this.playerBulletController.collideWith(enemy)) {
-                    // play a sound
+                    this.enemySound.currentTime = 0;
+                    this.enemySound.play();
                     enemyRow.splice(enemyIndex, 1);
                 }
             });
@@ -144,6 +148,10 @@ export default class EnemyMovement {
                 }
             })
         })
+    }
+
+    collideWith(sprite) {
+        return this.enemyRows.flat().some((enemy) => enemy.collideWith(sprite))
     }
 }
 

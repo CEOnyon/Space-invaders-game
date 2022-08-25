@@ -17,12 +17,50 @@ const enemyBulletControl = new BulletController(canvas, 4, "purple", false);
 const enemyMovement = new EnemyMovement(canvas, enemyBulletControl, playerBulletController);
 const player = new Player(canvas, 3, playerBulletController);
 
+let gameOver = false;
+let wonGame = false;
+
 function game(){
+    checkGameOver()
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    displayGameOver();
+    if (!gameOver) {
     enemyMovement.draw(ctx);
     player.draw(ctx);
     playerBulletController.draw(ctx);
     enemyBulletControl.draw(ctx);
+    console.log(gameOver)
+    }
+}
+
+function displayGameOver() {
+    if (gameOver) {
+    let text = wonGame ? "You Win" : "Game Over";
+    let textOffset = wonGame ? 3.5 : 5;
+
+    ctx.fillStyle = "white";
+    ctx.font = "70px Arial";
+    ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    }
+}
+
+function checkGameOver(){
+    if(gameOver) {
+        return;
+    }
+
+    if (enemyBulletControl.collideWith(player)) {
+        gameOver = true;
+    }
+
+    if(enemyMovement.collideWith(player)) {
+        gameOver = true;
+    }
+
+    if(enemyMovement.enemyRows.length === 0) {
+       wonGame = true;
+       gameOver = true; 
+    }
 }
 
 setInterval(game,1000/60);
