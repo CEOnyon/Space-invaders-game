@@ -2,9 +2,10 @@ import EnemyMovement from "./EnemyMovement.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
 
-document.querySelector("#reset").onclick = function(){
+document.querySelector(".glow-on-hover").onclick = function(){
     window.location.reload()
 }
+
 const canvas = document.getElementById('game')
 const ctx = canvas.getContext('2d')
 
