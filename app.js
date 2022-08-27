@@ -2,6 +2,7 @@ import EnemyMovement from "./EnemyMovement.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
 
+// Refresh the page
 document.querySelector(".glow-on-hover").onclick = function(){
     window.location.reload()
 }
@@ -68,5 +69,5 @@ function checkGameOver(){
 }
 
 setInterval(game,1000/60);
-Splitting();
+// Splitting();
  
