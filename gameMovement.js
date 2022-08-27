@@ -1,3 +1,4 @@
+// setting a const for the moving direstion of the game
 const gameMovement = {
     left: 0,
     right: 1,

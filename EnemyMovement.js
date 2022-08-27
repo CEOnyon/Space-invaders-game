@@ -12,10 +12,10 @@ export default class EnemyMovement {
       ];
       enemyRows = [];
 
-      currentDirection = gameMovement.right;
+      currentDirection = gameMovement.right; 
       xVelocity = 0;
       yVelocity = 0;
-      defaultXVelocity = 1 ;
+      defaultXVelocity = 1;
       defaultYVelocity = 1;
       moveDownTimerDefault = 30;
       moveDownTimer = this.moveDownTimerDefault;
@@ -83,27 +83,25 @@ export default class EnemyMovement {
             this.moveDownTimer--;
         }
     }
-
-    // gameMovement.right = 1
-    // gameMovement.left = 0
-    // gameMovement.downLeft = 2
+// iterating through each row of enemyRows to set the enemy movments
     updateVelocityAndDirection(){
         for (const enemyRow of this.enemyRows) {
-
+                // enemys will start moving right
             if (this.currentDirection == gameMovement.right){
                 this.xVelocity = this.defaultXVelocity;
                 this.yVelocity = 0;
+                // this checks if the right most enemy hits the edge of canvas
                 const rightMostEnemy = enemyRow[enemyRow.length -1];
                 if (rightMostEnemy.x + rightMostEnemy.width >= this.canvas.width) {
                     this.currentDirection = gameMovement.downLeft;
                     break;
                 } 
-
+                //enemys will monve downLeft but off the canvas 
             } else if (this.currentDirection === gameMovement.downLeft) {
                   if (this.moveDown(gameMovement.left)) {
                     break;
                   }
-                
+                //boundry check for left side of the canvas 
             } else if (this.currentDirection === gameMovement.left) {
                     this.xVelocity = -this.defaultXVelocity;
                     this.yVelocity = 0;
@@ -112,6 +110,7 @@ export default class EnemyMovement {
                         this.currentDirection = gameMovement.downRight;
                         break;
                     }
+                // enemys will move downRight and complete the loop
             } else if (this.currentDirection === gameMovement.downRight) {
                 if(this.moveDown(gameMovement.right)) {
                     break;
@@ -129,13 +128,16 @@ export default class EnemyMovement {
         }
         return false;
     }
-// loop over all enemyRows. Used the flat() method to make one flat structure for enemymap array.
+
+// loop over all enemyRows an instruct them to move based on the values set for the x & yVelocity . 
+// Used the flat() method to make one flat structure for enemymap array.
     drawEnemies(ctx) {
         this.enemyRows.flat().forEach((enemy) => {
             enemy.move(this.xVelocity, this.yVelocity);
             enemy.draw(ctx);
         })
     }
+
 // iterating through enemyMap to creat a new array of each row and rowIndex
 // this is to position each enemy 
 // The numbers 50 & 35 set the width and height between each enemy.png

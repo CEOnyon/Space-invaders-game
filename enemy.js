@@ -9,11 +9,12 @@ export default class enemy {
         this.image.src = `space-invaders-assets/images/enemy${imageNumber}.png`;
     }
 
-    // this set the images on the screen/canvas
+// this set the images on the screen/canvas
     draw(ctx) {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
 
+// this method set the enemys in motion
     move(xVelocity, yVelocity) {
         this.x += xVelocity;
         this.y += yVelocity;
