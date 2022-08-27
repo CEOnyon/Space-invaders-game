@@ -1,4 +1,17 @@
+#font {
+    font-family: 'Press Start 2P', cursive;
+}
+
+#font2 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+#font3 {
+    font-family: 'Press Start 2P', cursive;
+}
+
 h1 {
+    font-family: 'Press Start 2P', cursive;
     animation: color-change 2s infinite;
   }
   
@@ -82,3 +95,4 @@ body {
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
 }
+

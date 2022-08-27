@@ -7,6 +7,9 @@
     <title>Space Invaders</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="#">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         canvas {
             box-shadow: black 20px 10px 50px;
@@ -34,10 +37,15 @@
     </style>
 </head>
 <body>
-    <h1>Space Invaders</h1>
+    <h1 id="font">Space Invaders</h1>
     <canvas id="game"></canvas>
     <button class="glow-on-hover" type="button">TRY AGAIN!</button>
-    <h2>Game Rules</h2>
+    <h2 id="font2">How to Play</h2>
+    <ul id="font3" style="list-style: none;">
+        <h3><li>Left key</li></h3>
+        <h3><li>Right Key</li></h3>
+        <h3><li>Space to Shoot.</li></h3>
+    </ul>
     <script type="module" src="app.js"></script>
 </body>
 </html>

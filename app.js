@@ -17,7 +17,7 @@ background.src = 'space-invaders-assets/images/space.png';
 
 // instance
 const playerBulletController = new BulletController(canvas, 10, "red", true);
-const enemyBulletControl = new BulletController(canvas, 4, "purple", false);
+const enemyBulletControl = new BulletController(canvas, 4, "blue", false);
 const enemyMovement = new EnemyMovement(canvas, enemyBulletControl, playerBulletController);
 const player = new Player(canvas, 3, playerBulletController);
 
@@ -42,7 +42,7 @@ function displayGameOver() {
     let text = wonGame ? "You Win" : "Game Over";
     let textOffset = wonGame ? 3.5 : 5;
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "Green";
     ctx.font = "70px Arial";
     ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
     }
