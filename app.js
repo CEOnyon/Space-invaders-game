@@ -10,13 +10,13 @@ document.querySelector(".glow-on-hover").onclick = function(){
 const canvas = document.getElementById('game')
 const ctx = canvas.getContext('2d')
 
-canvas.width = 600;
-canvas.height = 600;
+canvas.width = 700;
+canvas.height = 700;
 
 const background = new Image();
 background.src = 'space-invaders-assets/images/space.png';
 
-// instance
+// instances
 const playerBulletController = new BulletController(canvas, 10, "red", true);
 const enemyBulletControl = new BulletController(canvas, 4, "blue", false);
 const enemyMovement = new EnemyMovement(canvas, enemyBulletControl, playerBulletController);
@@ -27,6 +27,7 @@ let wonGame = false;
 
 function game(){
     checkGameOver()
+    // sets the space backgroung to fit the canvas size
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     displayGameOver();
     if (!gameOver) {
@@ -67,7 +68,7 @@ function checkGameOver(){
        gameOver = true; 
     }
 }
-
+// Calling game loop 60 times every 1 second
 setInterval(game,1000/60);
-// Splitting();
+
  

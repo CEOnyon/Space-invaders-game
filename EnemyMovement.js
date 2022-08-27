@@ -129,16 +129,18 @@ export default class EnemyMovement {
         }
         return false;
     }
-
+// loop over all enemyRows. Used the flat() method to make one flat structure for enemymap array.
     drawEnemies(ctx) {
         this.enemyRows.flat().forEach((enemy) => {
             enemy.move(this.xVelocity, this.yVelocity);
             enemy.draw(ctx);
         })
     }
-
+// iterating through enemyMap to creat a new array of each row and rowIndex
+// this is to position each enemy 
+// The numbers 50 & 35 set the width and height between each enemy.png
     createEnemies() {
-        this.enemyMap.forEach((row, rowIndex) =>{
+        this.enemyMap.forEach((row, rowIndex) =>{  
             this.enemyRows[rowIndex] = [];
             row.forEach((enemyNumber, enemyIndex) => {
                 if(enemyNumber > 0) {
