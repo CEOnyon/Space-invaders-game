@@ -15,8 +15,8 @@ export default class EnemyMovement {
       currentDirection = gameMovement.right; 
       xVelocity = 0;
       yVelocity = 0;
-      defaultXVelocity = 1;
-      defaultYVelocity = 1;
+      defaultXVelocity = 2;
+      defaultYVelocity = 2;
       moveDownTimerDefault = 30;
       moveDownTimer = this.moveDownTimerDefault;
       bulletTimerDefault = 100;
