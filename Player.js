@@ -8,6 +8,9 @@ export default class Player {
         this.velocity = velocity;
         this.bulletController = bulletController;
 
+        // this is the set up for the player, this.x = this.canvas.width / 2 centers the player on the screen
+        // this.canvas.height sets the height of the player/spaceship. 
+        // this.width and this.height are the dimentions of the the player img  
         this.x = this.canvas.width / 2;
         this.y = this.canvas.height - 75;
         this.width = 50;
@@ -27,7 +30,7 @@ export default class Player {
         this.hitWalls();
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
     } 
-
+// boundry check so player stops at the wall of the canvas
     hitWalls() {
         // left
         if (this.x < 0) {
@@ -38,7 +41,7 @@ export default class Player {
             this.x = this.canvas.width -this.width;
         }
     };
-
+// move method is responsibe for responding to the keyboard events
     move() {
         if (this.rightPress) {
             this.x += this.velocity
