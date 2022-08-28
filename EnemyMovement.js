@@ -44,7 +44,6 @@ export default class EnemyMovement {
     }
 
     collisionDetection() {
-
         this.enemyRows.forEach((enemyRow) => {
             enemyRow.forEach((enemy, enemyIndex) => {
                 if(this.playerBulletController.collideWith(enemy)) {
@@ -66,7 +65,6 @@ export default class EnemyMovement {
             const enemyIndex = Math.floor(Math.random() * allEnemys.length);
             const enemy = allEnemys[enemyIndex];
             this.enemyBulletControl.shoot(enemy.x, enemy.y, -3);
-            // console.log(enemyIndex);
         }
     }
 
